@@ -9,7 +9,7 @@ let allBundles = [];
 let activeBundle = null;
 
 // DOM Elements
-const selectorBar = document.getElementById('selector-bar');
+const selectorBar = document.getElementById('bundle-selector-bar');
 const bundleTitle = document.getElementById('bundle-title');
 const bundleDesc = document.getElementById('bundle-desc');
 const displayPrice = document.getElementById('display-price');
@@ -19,7 +19,7 @@ const cardCover = document.getElementById('card-cover');
 const flankLeftList = document.getElementById('flank-left-list');
 const flankRightList = document.getElementById('flank-right-list');
 const buyBtn = document.getElementById('buy-btn');
-const mainShowcase = document.getElementById('main-showcase');
+const mainShowcase = document.getElementById('hero');
 
 // Checkout Modal Elements
 const checkoutModal = document.getElementById('checkout-modal');
