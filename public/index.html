@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullstack Masterclass + Ultimate Developer Box - Special Offer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Offer Ticker -->
+  <div class="promo-ticker">
+    <div class="ticker-content">
+      <span>🔥 LIMITED TIME OFFER! GET 93% OFF TODAY</span>
+      <span class="ticker-separator">•</span>
+      <span>OFFER EXPIRES IN <strong id="countdown">14:59</strong></span>
+      <span class="ticker-separator">•</span>
+      <span>⚡ INSTANT ACCESS TO ALL FILES</span>
+    </div>
+  </div>
+
+  <!-- Translucent Header -->
+  <header>
+    <div class="logo">
+      Adify<span>amit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Special Offer</a></li>
+      <li><a href="#inside">What's Inside</a></li>
+      <li><a href="/admin.html">Admin Dashboard</a></li>
+    </ul>
+  </header>
+
+  <!-- Sales Landing Page Container -->
+  <main>
+    <!-- Top Subheading -->
+    <div class="offer-subheading">
+      <span>THE ULTIMATE FULLSTACK ENGINEERING SOLUTION PACK</span>
+      <h2>CREATE POWERFUL APPLICATIONS • ACCELERATE YOUR CAREER</h2>
+    </div>
+    
+    <!-- Bundle Selection Bar -->
+    <div class="bundle-selector-bar" id="bundle-selector-bar">
+      <!-- Tabs populated dynamically by app.js -->
+    </div>
+
+    <!-- Main Visual Presentation Box -->
+    <section class="showcase-section" id="hero">
+      <div class="showcase-grid">
+        
+        <!-- Left Features Flank -->
+        <div class="features-flank left">
+          <div class="flank-header red-tag" id="flank-left-header">CORE PACK FEATURES</div>
+          <ul class="flank-list" id="flank-left-list">
+            <!-- Populated dynamically by app.js -->
+          </ul>
+        </div>
+
+        <!-- Center 3D Box Mockup & Badge -->
+        <div class="mockup-center">
+          <!-- Price Sticker Badge -->
+          <div class="price-sticker">
+            <span class="sticker-label">SPECIAL PRICE</span>
+            <span class="sticker-price" id="sticker-price">$49</span>
+            <span class="sticker-original" id="sticker-original">$199</span>
+            <div class="sticker-glow"></div>
+          </div>
+
+          <!-- 3D Perspective Card -->
+          <div class="box-3d-wrapper">
+            <div class="box-3d-card" id="box-card">
+              <div class="card-glow"></div>
+              <div class="box-image-wrapper">
+                <img id="bundle-cover" src="" alt="Course Bundle Cover" style="display: none;">
+                <div class="placeholder-img" id="bundle-cover-placeholder">
+                  <div class="placeholder-box-graphic">
+                    <span style="font-size: 3rem;">📦</span>
+                    <h3>DEV-BOX BUNDLE</h3>
+                    <p>No active bundle uploaded yet.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="box-info-overlay">
+                <h4 id="box-title">Loading Bundle...</h4>
+                <div class="box-badges-row">
+                  <span>ZIP DOWNLOAD</span>
+                  <span>LIFETIME ACCESS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Features Flank -->
+        <div class="features-flank right">
+          <div class="flank-header blue-tag" id="flank-right-header">BONUS Blueprints</div>
+          <ul class="flank-list" id="flank-right-list">
+            <!-- Populated dynamically by app.js -->
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom CTA Bar & Trust Ribbons -->
+    <section class="cta-section">
+      <!-- Trust ribbon -->
+      <div class="trust-ribbon">
+        <div class="ribbon-item">
+          <span class="ribbon-icon">⚡</span>
+          <span>INSTANT DOWNLOAD</span>
+        </div>
+        <div class="ribbon-item">
+          <span class="ribbon-icon">✓</span>
+          <span>EASY TO USE</span>
+        </div>
+        <div class="ribbon-item">
+          <span class="ribbon-icon">📁</span>
+          <span>FULLY EDITABLE CODE</span>
+        </div>
+        <div class="ribbon-item">
+          <span class="ribbon-icon">★</span>
+          <span>PREMIUM QUALITY</span>
+        </div>
+      </div>
+
+      <!-- Giant Buy Now Action Button -->
+      <div class="action-btn-container">
+        <button class="buy-now-btn" id="buy-btn">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-text">BUY NOW - DOWNLOAD INSTANTLY</span>
+          <span class="btn-price-label" id="btn-price-label">$49.00</span>
+        </button>
+        <p class="cta-subtext">Clicking buy triggers simulated secure sandbox checkout. Access files instantly upon completion.</p>
+      </div>
+    </section>
+
+    <!-- Detailed Modules grid (What's Inside) -->
+    <section class="details-section" id="inside">
+      <div class="section-header">
+        <h2 class="details-title">WHAT YOU'LL GET IN THE BUNDLE</h2>
+        <p>A full layout of courses, scripts, and document templates included in this single purchase.</p>
+      </div>
+      
+      <div class="details-grid" id="features-container">
+        <!-- populated dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Checkout Overlay Modal -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="modal-title-text">Secure Checkout</h3>
+        <button class="modal-close-btn" id="close-modal-btn">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Step 1: Customer Details -->
+        <div class="checkout-step active" id="step-details">
+          <div class="checkout-bundle-summary">
+            <h4 id="summary-title">Loading Bundle...</h4>
+            <span id="summary-price">$49.00</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="customer-name">Full Name</label>
+            <input type="text" id="customer-name" class="form-input" placeholder="John Doe" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customer-email">Email Address</label>
+            <input type="email" id="customer-email" class="form-input" placeholder="john@example.com" required>
+          </div>
+          
+          <button class="checkout-btn" id="proceed-payment-btn">Proceed to Payment</button>
+        </div>
+
+        <!-- Step 2: Payment Details (Simulated Card/UPI) -->
+        <div class="checkout-step" id="step-payment">
+          <div class="checkout-tabs">
+            <button class="checkout-tab active" id="tab-card">Credit / Debit Card</button>
+            <button class="checkout-tab" id="tab-upi">UPI Payment</button>
+          </div>
+
+          <!-- Card Form -->
+          <div id="payment-method-card" class="checkout-step active" style="margin-bottom: 0;">
+            <div class="form-group">
+              <label for="card-number">Card Number</label>
+              <input type="text" id="card-number" class="form-input" placeholder="4111 2222 3333 4444" required>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-expiry">Expiry Date</label>
+                <input type="text" id="card-expiry" class="form-input" placeholder="MM/YY" required>
+              </div>
+              <div class="form-group">
+                <label for="card-cvc">CVC</label>
+                <input type="text" id="card-cvc" class="form-input" placeholder="123" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI Form -->
+          <div id="payment-method-upi" class="checkout-step" style="display: none; margin-bottom: 0;">
+            <div class="form-group">
+              <label for="upi-id">UPI Address (VPA)</label>
+              <input type="text" id="upi-id" class="form-input" placeholder="john@upi">
+            </div>
+            <p style="font-size: 0.85rem; text-align: center; color: var(--text-muted);">
+              Enter a mock virtual payment address to simulate UPI authorization.
+            </p>
+          </div>
+
+          <button class="checkout-btn" id="pay-submit-btn" style="margin-top: 1rem;">Authorize & Pay <span id="pay-amount-label">$49.00</span></button>
+        </div>
+
+        <!-- Step 3: Payment Loading / Processing Spinner -->
+        <div class="checkout-step" id="step-processing">
+          <div class="status-spinner-wrapper">
+            <div class="spinner"></div>
+            <h3>Processing Payment</h3>
+            <p>Authorizing secure simulation transaction with bank networks. Please wait...</p>
+          </div>
+        </div>
+
+        <!-- Step 4: Success & Trigger Download -->
+        <div class="checkout-step" id="step-success">
+          <div class="status-spinner-wrapper">
+            <div class="success-icon">✓</div>
+            <h3>Payment Approved!</h3>
+            <p id="success-download-message">Your purchase is verified. Generating secure credentials and triggering download...</p>
+            
+            <div style="margin-top: 1.5rem; width: 100%;">
+              <a id="direct-download-btn" class="primary-btn" style="display: inline-block; text-align: center; width: 100%;">Download Course Bundle</a>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-muted);">
+              If the download didn't start automatically, click the button above. The link remains valid for 15 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Contact Us Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <h3>Support & Assistance</h3>
+      <p>Have questions about your purchase or need help downloading files? Contact our support team:</p>
+      <a href="mailto:Contact@adifyamit.in" class="contact-email">Contact@adifyamit.in</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Adifyamit. All digital product delivery is automated. Sandbox mode enabled.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

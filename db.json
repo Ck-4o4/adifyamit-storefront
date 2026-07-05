@@ -1,0 +1,124 @@
+{
+  "bundles": [
+    {
+      "id": "graphics-sale",
+      "title": "Ultimate Canva Graphic Bundle",
+      "description": "Unlock limitless possibilities with 1000+ high-quality editable Canva templates, resume designs, and video reels. Includes a Canva keyword search guide and lifetime free updates.",
+      "price": 99,
+      "features": [
+        "2GB Resume Templates Pack",
+        "365 Days Social Media Calendar Plan",
+        "1000+ Canva Social Media Post Templates",
+        "Canva Video Reels Templates Pack",
+        "Ultimate Canva Keyword Search Guide",
+        "Lifetime Access with Free Updates"
+      ],
+      "fileName": "graphics_sale_bundle.zip",
+      "originalName": "Canva_Graphic_Templates_Bundle.zip",
+      "coverImage": "bundle_graphics_sale.jpg",
+      "driveUrl": "https://drive.google.com/drive/folders/1nHe2zLdG06HABa5ZQev8TryEPCGhfcid?usp=drive_link",
+      "uploadDate": "2026-07-05T12:15:00.000Z",
+      "downloads": 2
+    },
+    {
+      "id": "hr-toolkit",
+      "title": "Ultimate HR Toolkit Pack",
+      "description": "All-in-one HR solutions to save time and empower your people. Access centralized employee database sheets, attendance trackers, payroll calculators, and dozens of recruitment templates.",
+      "price": 99,
+      "features": [
+        "Centralized Employee Database Tracker",
+        "Attendance & Leave Management Sheets",
+        "Automated Payroll Template Calculators",
+        "Performance Review & Evaluation Forms",
+        "Offer, Experience & Resignation Templates",
+        "HR Reports Dashboard for Insights"
+      ],
+      "fileName": "hr_toolkit_bundle.zip",
+      "originalName": "HR_Toolkit_Solutions.zip",
+      "coverImage": "bundle_hr_toolkit.jpg",
+      "driveUrl": "https://drive.google.com/drive/folders/1ytWgQJGkI7Zk7hqi2rAPpjyA3G9kfu0L?usp=drive_link",
+      "uploadDate": "2026-07-05T12:05:00.000Z",
+      "downloads": 0
+    },
+    {
+      "id": "business-accounts",
+      "title": "Business Accounts Toolkit",
+      "description": "Everything you need to manage your business accounts like a pro. A single powerful bundle containing Google Sheets trackers, professional billing invoices, expenses logs, and contracts.",
+      "price": 99,
+      "features": [
+        "Google Sheets Business Trackers",
+        "Professional Invoice & Billing Templates",
+        "Expense & Profit & Loss Sheets",
+        "Client Database & Follow-up Trackers",
+        "Meeting Notes & Task Manager Logs",
+        "Contracts & Quotations Ready-to-Use"
+      ],
+      "fileName": "business_accounts_bundle.zip",
+      "originalName": "Business_Accounts_Toolkit.zip",
+      "coverImage": "bundle_business_accounts.jpg",
+      "driveUrl": "https://drive.google.com/drive/folders/195-uVNGgoX1lBNl-EtBK2J5qoGcwzDT3?usp=drive_link",
+      "uploadDate": "2026-07-05T12:10:00.000Z",
+      "downloads": 0
+    },
+    {
+      "id": "presentations-sbb",
+      "title": "Presentations + SBB-Smart Business Box",
+      "description": "The Ultimate Business Solution Pack. Get over 100+ unique presentation slides, business template checklists, finance sheets, and payroll calculators designed to help manage, track, and grow your business.",
+      "price": 99,
+      "features": [
+        "100+ Unique Presentation Slides",
+        "Finance & Accounting Templates",
+        "HR & Payroll Management Documents",
+        "Project & Task Management Trackers",
+        "Marketing & Sales Pitch Tools",
+        "Track, Analyze & Grow Business Dashboards"
+      ],
+      "fileName": "presentations_sbb_bundle.zip",
+      "originalName": "Presentations_SBB_BusinessBox.zip",
+      "coverImage": "bundle_presentations_sbb.jpg",
+      "driveUrl": "https://drive.google.com/drive/folders/1GFMtyIYcXGk3PqKfrjwWyZfzl0XitcBf?usp=drive_link",
+      "uploadDate": "2026-07-05T12:00:00.000Z",
+      "downloads": 0
+    }
+  ],
+  "purchases": [
+    {
+      "id": "3827c064-6db3-4cb7-a893-cf1a2146a69f",
+      "bundleId": "graphics-sale",
+      "bundleTitle": "Ultimate Canva Graphic Bundle",
+      "amount": 99,
+      "customerName": "Canva Designer",
+      "customerEmail": "canva@user.com",
+      "timestamp": "2026-07-05T13:05:52.355Z"
+    },
+    {
+      "id": "1cb009c3-21bc-43f5-a98e-d25359d49288",
+      "bundleId": "graphics-sale",
+      "bundleTitle": "Ultimate Canva Graphic Bundle",
+      "amount": 99,
+      "customerName": "Karangia Chirag Maheshbhai",
+      "customerEmail": "karangiachirag@gmail.com",
+      "timestamp": "2026-07-05T13:06:28.007Z"
+    }
+  ],
+  "tokens": [
+    {
+      "token": "7390acf1-fbb1-486f-8e08-cdc6123c24dc",
+      "bundleId": "graphics-sale",
+      "purchaseId": "3827c064-6db3-4cb7-a893-cf1a2146a69f",
+      "createdAt": 1783256752362,
+      "expiresAt": 1783257652362,
+      "maxDownloads": 3,
+      "downloadCount": 1
+    },
+    {
+      "token": "20d273c9-b6cb-4d7d-93fe-89fa7c5cf22d",
+      "bundleId": "graphics-sale",
+      "purchaseId": "1cb009c3-21bc-43f5-a98e-d25359d49288",
+      "createdAt": 1783256788008,
+      "expiresAt": 1783257688008,
+      "maxDownloads": 3,
+      "downloadCount": 1
+    }
+  ]
+}
