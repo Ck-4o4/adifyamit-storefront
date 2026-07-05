@@ -210,6 +210,7 @@ app.post('/api/checkout', async (req, res) => {
     const xVerifyHeader = sha256Checksum + "###" + PHONEPE_SALT_INDEX;
 
     try {
+      console.log("Sending PhonePe Request to:", `${PHONEPE_HOST}/pg/v1/pay`);
       const response = await axios.post(`${PHONEPE_HOST}/pg/v1/pay`, {
         request: base64Payload
       }, {
