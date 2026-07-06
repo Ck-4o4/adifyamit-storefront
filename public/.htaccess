@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Block direct access to database and env config files
+<FilesMatch "^\.env|db\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Route API requests to PHP scripts
+RewriteRule ^api/payment/config$ api/payment_config.php [L,QSA]
+RewriteRule ^api/bundles?$ api/bundles.php [L,QSA]
+RewriteRule ^api/checkout$ api/checkout.php [L,QSA]
+RewriteRule ^api/phonepe/callback$ api/phonepe_callback.php [L,QSA]
+RewriteRule ^download/(.*)$ api/download.php?token=$1 [L,QSA]

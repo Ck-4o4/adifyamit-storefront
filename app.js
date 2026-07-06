@@ -7,19 +7,33 @@ const BACKEND_URL = "";
 
 let allBundles = [];
 let activeBundle = null;
+let paymentGateway = 'sandbox';
+
+async function fetchPaymentConfig() {
+  try {
+    const base = BACKEND_URL || window.location.origin;
+    const response = await fetch(`${base}/api/payment/config`);
+    if (response.ok) {
+      const data = await response.json();
+      paymentGateway = data.gateway;
+    }
+  } catch (error) {
+    console.error("Error fetching payment config:", error);
+  }
+}
 
 // DOM Elements
-const selectorBar = document.getElementById('selector-bar');
-const bundleTitle = document.getElementById('bundle-title');
-const bundleDesc = document.getElementById('bundle-desc');
-const displayPrice = document.getElementById('display-price');
-const originalPrice = document.getElementById('original-price');
-const discountPercentage = document.getElementById('discount-percentage');
-const cardCover = document.getElementById('card-cover');
+const selectorBar = document.getElementById('bundle-selector-bar');
+const bundleTitle = document.getElementById('box-title');
+const bundleDesc = null;
+const displayPrice = document.getElementById('sticker-price');
+const originalPrice = document.getElementById('sticker-original');
+const discountPercentage = null;
+const cardCover = document.getElementById('bundle-cover');
 const flankLeftList = document.getElementById('flank-left-list');
 const flankRightList = document.getElementById('flank-right-list');
 const buyBtn = document.getElementById('buy-btn');
-const mainShowcase = document.getElementById('main-showcase');
+const mainShowcase = document.getElementById('hero');
 
 // Checkout Modal Elements
 const checkoutModal = document.getElementById('checkout-modal');
@@ -117,57 +131,92 @@ function selectBundle(bundleId) {
 
 // Populate bundle contents
 function displayBundle(bundle) {
-  mainShowcase.style.opacity = 0;
+  if (mainShowcase) mainShowcase.style.opacity = 0;
   
   setTimeout(() => {
-    bundleTitle.textContent = bundle.title;
-    bundleDesc.textContent = bundle.description;
-    displayPrice.textContent = `₹${bundle.price}`;
-    
-    originalPrice.textContent = `₹3,999`;
-    discountPercentage.textContent = `SAVE 97%`;
+    if (bundleTitle) bundleTitle.textContent = bundle.title;
+    if (bundleDesc) bundleDesc.textContent = bundle.description;
+    if (displayPrice) displayPrice.textContent = `₹${bundle.price}`;
+    if (originalPrice) originalPrice.textContent = `₹3,999`;
+    if (discountPercentage) discountPercentage.textContent = `SAVE 97%`;
 
     // Update modal checkout details
-    document.getElementById('summary-title').textContent = bundle.title;
-    document.getElementById('summary-price').textContent = `₹${bundle.price}`;
-    document.getElementById('pay-amount-label').textContent = `₹${bundle.price}.00`;
+    const summaryTitle = document.getElementById('summary-title');
+    if (summaryTitle) summaryTitle.textContent = bundle.title;
+    
+    const summaryPrice = document.getElementById('summary-price');
+    if (summaryPrice) summaryPrice.textContent = `₹${bundle.price}`;
+    
+    const payAmountLabel = document.getElementById('pay-amount-label');
+    if (payAmountLabel) payAmountLabel.textContent = `₹${bundle.price}.00`;
+
+    const btnPriceLabel = document.getElementById('btn-price-label');
+    if (btnPriceLabel) btnPriceLabel.textContent = `₹${bundle.price}`;
 
     const base = BACKEND_URL || window.location.origin;
-    cardCover.src = bundle.coverImage.startsWith('http') ? bundle.coverImage : `${base}${bundle.coverImage}`;
+    if (cardCover) {
+      cardCover.src = bundle.coverImage.startsWith('http') ? bundle.coverImage : `${base}${bundle.coverImage}`;
+      cardCover.style.display = 'block';
+      const placeholder = document.getElementById('bundle-cover-placeholder');
+      if (placeholder) placeholder.style.display = 'none';
+    }
 
     // Split features into left & right lists
-    flankLeftList.innerHTML = '';
-    flankRightList.innerHTML = '';
+    if (flankLeftList) flankLeftList.innerHTML = '';
+    if (flankRightList) flankRightList.innerHTML = '';
 
     const leftFeatures = bundle.features.slice(0, 3);
     const rightFeatures = bundle.features.slice(3, 6);
     const listIcons = ['✓', '✦', '✔', '⚡', '⭐', '★'];
 
     leftFeatures.forEach((feat, idx) => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span class="list-icon">${listIcons[idx % listIcons.length]}</span>
-        <div class="list-text">
-          <strong>${feat}</strong>
-          <p>Full lifetime access & updates</p>
-        </div>
-      `;
-      flankLeftList.appendChild(li);
+      if (flankLeftList) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="list-icon">${listIcons[idx % listIcons.length]}</span>
+          <div class="list-text">
+            <strong>${feat}</strong>
+            <p>Full lifetime access & updates</p>
+          </div>
+        `;
+        flankLeftList.appendChild(li);
+      }
     });
 
     rightFeatures.forEach((feat, idx) => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span class="list-icon">${listIcons[(idx + 3) % listIcons.length]}</span>
-        <div class="list-text">
-          <strong>${feat}</strong>
-          <p>Full lifetime access & updates</p>
-        </div>
-      `;
-      flankRightList.appendChild(li);
+      if (flankRightList) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="list-icon">${listIcons[(idx + 3) % listIcons.length]}</span>
+          <div class="list-text">
+            <strong>${feat}</strong>
+            <p>Full lifetime access & updates</p>
+          </div>
+        `;
+        flankRightList.appendChild(li);
+      }
     });
 
-    mainShowcase.style.opacity = 1;
+    // Populate details grid section
+    const featuresContainer = document.getElementById('features-container');
+    if (featuresContainer) {
+      featuresContainer.innerHTML = '';
+      bundle.features.forEach((feat, index) => {
+        const icons = ['📁', '🚀', '📊', '🛠️', '🎨', '🔒'];
+        const icon = icons[index % icons.length];
+        
+        const card = document.createElement('div');
+        card.className = 'feature-card';
+        card.innerHTML = `
+          <div class="feature-icon">${icon}</div>
+          <div class="feature-title">${feat}</div>
+          <div class="feature-desc">Premium high-quality asset included in the bundle with lifetime support and updates.</div>
+        `;
+        featuresContainer.appendChild(card);
+      });
+    }
+
+    if (mainShowcase) mainShowcase.style.opacity = 1;
   }, 200);
 }
 
@@ -364,7 +413,12 @@ nextBtn.addEventListener('click', () => {
     showToast('Please enter your name.', 'error');
     return;
   }
-  setCheckoutStep('payment');
+  
+  if (paymentGateway === 'phonepe') {
+    processPayment();
+  } else {
+    setCheckoutStep('payment');
+  }
 });
 
 // Setup tab switches
@@ -390,6 +444,7 @@ paySubmitBtn.addEventListener('click', () => {
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
+  fetchPaymentConfig();
   fetchBundles();
   setupCard3DTilt();
   setupCountdown();
